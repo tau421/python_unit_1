@@ -6,6 +6,19 @@ my_book = {
     "pages": 374
 }
 
+book_list = [
+    {
+    "title": "book1",
+    "rating": 4,
+    "pages": 200
+},
+{
+    "title": "book2",
+    "rating": 2,
+    "pages": 100
+}
+]
+
 # Follow the instructions in this part of the project. Define and flesh out your function below, which should accept a dictionary as an argument when called, and return a string of the info in that book-dictionary in a user-friendly readable format.
 
 # Code below
@@ -49,13 +62,19 @@ print(book_pages_helper(my_book))
 
 # Finally, create at least three new functions that might be useful as we expand our home library app. Perhaps thing of a way you could accept additional arguments when the function is called? Also, imagine you have a list filled with dictionaries like above.
 
+# Code below
+
 def length_finder(lst, pages):
-    pass
+    for dict in lst:
+        if dict["pages"] <= pages:
+            return dict
 
 def rating_filter(lst, rating):
-    pass
+    for dict in lst:
+        if dict["rating"] >= rating:
+            return dict
 
 def random_book_suggestion(lst):
-    pass
-
-# Code below
+    import random
+    suggestion = random.randint(0, (len(lst)-1))
+    return (lst[suggestion]["title"])
